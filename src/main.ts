@@ -20,8 +20,19 @@ let counter: number = 0;
 counterDisplay.innerHTML = `${counter} launches 🚀`; // Display initial counter 
 app.append(counterDisplay);
 
-// event listener to increase the counter
+// Function to update the counter display
+const updateCounterDisplay = () => {
+  counterDisplay.innerHTML = `${counter} launches 🚀`; // Update the display with new counter value
+};
+
+// Event listener to increase the counter on button click
 button.addEventListener("click", () => {
   counter++;
-  counterDisplay.innerHTML = `${counter} launches 🚀`; // Update counter value
+  updateCounterDisplay(); // Update the counter display
 });
+
+// increase counter every 1 second
+setInterval(() => {
+  counter++;
+  updateCounterDisplay(); // Update the counter display
+}, 1000); 
