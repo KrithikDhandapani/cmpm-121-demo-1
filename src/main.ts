@@ -68,14 +68,14 @@ const availableItems: Item[] = [
   },
 ];
 
-// Dynamically generate buttons for purchasing items
+// Dynamically generate buttons 
 const upgradeButtons = createUpgradeButtons();
 
-// Initialize UI
+
 app.append(header, collectButton, counterDisplay, growthRateDisplay, itemCountDisplay, itemDescriptionsDisplay);
 upgradeButtons.forEach((button) => app.append(button));
 
-// --- Utility Functions ---
+//  Utility 
 function createHeader(title: string): HTMLHeadingElement {
   const header = document.createElement("h1");
   header.innerHTML = title;
@@ -107,7 +107,7 @@ function createUpgradeButtons(): HTMLButtonElement[] {
   });
 }
 
-// --- Event Handlers ---
+//Event Handlers
 function handleCollect(): void {
   counter++;
   updateUI();
@@ -127,13 +127,13 @@ function handlePurchase(index: number): void {
   }
 }
 
-// --- Update Functions ---
+// Update Functions 
 function updateUI(): void {
-  // Update main displays
+  
   counterDisplay.innerHTML = `${counter.toFixed(2)} stardust 🌟`;
   growthRateDisplay.innerHTML = `Growth rate: ${growthRate.toFixed(2)} stardust/sec 🌟`;
 
-  // Update item counts
+  
   itemCountDisplay.innerHTML = availableItems
     .map((item) => `${item.name}: ${item.count} purchased`)
     .join("<br>");
@@ -143,13 +143,13 @@ function updateUI(): void {
     button.disabled = counter < availableItems[i].price;
   });
 
-  // Update item descriptions
+  
   itemDescriptionsDisplay.innerHTML = availableItems
     .map((item) => `<b>${item.name}:</b> ${item.description}`)
     .join("<br><br>");
 }
 
-// --- Animation Loop ---
+// Animation Loop 
 let lastTimestamp: number = 0;
 
 function animate(timestamp: number): void {
